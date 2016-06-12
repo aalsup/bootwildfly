@@ -13,6 +13,6 @@ public class HelloWildFlyController {
         if ((location == null) || (location.length() == 0)) {
             location = "Maryland";
         }
-        return ("Hello from " + location);
+        return ("Goodbye from " + location);
     }
 }
