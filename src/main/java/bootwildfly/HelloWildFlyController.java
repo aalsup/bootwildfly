@@ -10,12 +10,12 @@ public class HelloWildFlyController {
     @RequestMapping("hello")
     public String sayHello() {
         // Get server IP/host info
-        InetAddress inet = InetAddress.getLocalHost();
-        serverInfo = "";
+        String serverInfo = "";
         try {
+            InetAddress inet = InetAddress.getLocalHost();
             String ip = inet.getHostAddress().toString();
             String hostname = inet.getHostName();
-            String serverInfo =  hostname + "/" + ip;
+            serverInfo =  hostname + "/" + ip;
         } catch (java.net.UnknownHostException uhe) {
             serverInfo = uhe.toString();
         }
