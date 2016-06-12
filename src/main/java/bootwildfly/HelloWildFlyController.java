@@ -12,8 +12,6 @@ public class HelloWildFlyController {
         // Get server IP/host info
         InetAddress inet = InetAddress.getLocalHost();
         String ip = inet.getHostAddress().toString();
-        String hostname = inet.getHostName();
-        String serverInfo =  hostname + "/" + ip;
 
         // Get location info from ENV
         String location = System.getenv("CUSTOM_LOCATION");
@@ -21,6 +19,6 @@ public class HelloWildFlyController {
             location = "Maryland";
         }
 
-        return ("Hello from " + location + " on server " + serverInfo);
+        return ("Hello from " + location + " on server " + ip);
     }
 }
