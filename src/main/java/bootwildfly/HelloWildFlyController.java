@@ -11,7 +11,14 @@ public class HelloWildFlyController {
     public String sayHello() {
         // Get server IP/host info
         InetAddress inet = InetAddress.getLocalHost();
-        String ip = inet.getHostAddress().toString();
+        serverInfo = "";
+        try {
+            String ip = inet.getHostAddress().toString();
+            String hostname = inet.getHostName();
+            String serverInfo =  hostname + "/" + ip;
+        } catch (java.net.UnknownHostException uhe) {
+            serverInfo = uhe.toString();
+        }
 
         // Get location info from ENV
         String location = System.getenv("CUSTOM_LOCATION");
@@ -19,6 +26,6 @@ public class HelloWildFlyController {
             location = "Maryland";
         }
 
-        return ("Hello from " + location + " on server " + ip);
-    }
+        return ("Hello from " + location + " on server " + serverInfo);
+      }
 }
