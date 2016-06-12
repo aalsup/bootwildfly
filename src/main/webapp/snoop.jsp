@@ -4,6 +4,7 @@
 	<%@ page import="javax.servlet.http.HttpUtils,java.util.Enumeration" %>
 	<%@ page import="java.lang.management.*" %>
 	<%@ page import="java.util.*" %>
+	<%@ page import="java.net.*" %>
 </HEAD>
 <BODY>
 
@@ -88,6 +89,22 @@ MemoryPoolMXBean item = (MemoryPoolMXBean) iter.next();
 <%
 }
 %>
+
+<%
+InetAddress inet = InetAddress.getLocalHost();
+%>
+
+<H2>Server Information</H2>
+<TABLE>
+<TR>
+	<TH alight=right>IP:</TH>
+	<TD><%= inet.getHostAddress() %></TD>
+</TR>
+<TR>
+	<TH align=right>Hostname:</TH>
+	<TD><%= inet.getHostName() %></TD>
+</TR>
+</TABLE>
 
 <H2>Request information</H2>
 
