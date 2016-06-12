@@ -9,7 +9,10 @@ public class HelloWildFlyController {
 
     @RequestMapping("hello")
     public String sayHello() {
-        String location = (System.getenv("CUSTOM_LOCATION") == null) ? "Maryland" : System.getenv("CUSTOM_LOCATION");
+        String location = System.getenv("CUSTOM_LOCATION");
+        if ((location == null) || (location.length() == 0)) {
+            location = "Maryland";
+        }
         return ("Hello from " + location);
     }
 }
